@@ -1,0 +1,109 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Default background (keyinchalik JS o‘zgartiradi) */
+body {
+    height: 100vh;
+    width: 100%;
+    background: #000; 
+    overflow: hidden;
+    transition: background 1s ease;
+}
+
+/* ---------- Yulduzlar (Tun) ---------- */
+#stars {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    background: transparent;
+    pointer-events: none;
+    opacity: 0; /* avval o‘chik */
+    transition: opacity 1s ease;
+    box-shadow:
+        100px 200px #fff,
+        300px 500px #fff,
+        600px 100px #fff,
+        900px 400px #fff,
+        1200px 300px #fff,
+        500px 700px #fff,
+        800px 200px #fff,
+        1100px 600px #fff;
+    animation: twinkling 2.5s infinite alternate ease-in-out;
+}
+
+@keyframes twinkling {
+    from { opacity: 0.3; }
+    to { opacity: 1; }
+}
+
+/* ---------- Bulutlar (KUN) ---------- */
+#clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200%;
+    height: 100%;
+    background: url('day.png') repeat-x;
+    background-size: cover;
+    animation: moveClouds 70s linear infinite;
+    opacity: 0;
+    transition: opacity 1s ease;
+}
+
+@keyframes moveClouds {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+/* ---------- Profile Box ---------- */
+.container {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.profile {
+    text-align: center;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+}
+
+.avatar {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 4px solid #fff;
+}
+
+.name {
+    margin-top: 20px;
+    font-size: 32px;
+    font-weight: bold;
+    color: white;
+    text-shadow: 0 0 10px black;
+}
+
+.social a {
+    display: inline-block;
+    margin: 10px;
+    padding: 10px 20px;
+    background: white;
+    color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.social a:hover {
+    background: black;
+    color: white;
+}
